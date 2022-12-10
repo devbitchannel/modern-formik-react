@@ -13,7 +13,7 @@ const ContactUsSchema = Yup.object().shape({
   companyWebsite: Yup.string().url("Invalid URL").required("Required"),
   phone: Yup.string()
     .min(10, "Too Short!")
-    .max(10, "Too Long!")
+    .max(14, "Too Long!")
     .required("Required"),
   chatType: Yup.string()
     .required("Required")
@@ -42,7 +42,7 @@ const TextAreaField = ({ field, form, ...props }) => {
 
 const ContactUsForm = () => {
   return (
-    <>
+    <section>
       <div className="contactus-form_wrapper">
         <h1 className="contactus-form_heading">
           Let’s make cool stuff together 🖤
@@ -66,7 +66,9 @@ const ContactUsForm = () => {
           {({ errors, touched }) => (
             <Form className="contactus-form">
               <div className="contactus-form_input-group">
-                <label htmlFor="name">Name</label>
+                <label className="contactus-form_label" htmlFor="name">
+                  Name
+                </label>
                 <Field
                   className="input-textfield"
                   placeholder="Jon Snow"
@@ -77,7 +79,9 @@ const ContactUsForm = () => {
                 ) : null}
               </div>
               <div className="contactus-form_input-group">
-                <label htmlFor="email">Email</label>
+                <label className="contactus-form_label" htmlFor="email">
+                  Email
+                </label>
                 <Field
                   placeholder="jon@thewall.com"
                   className="input-textfield"
@@ -88,7 +92,12 @@ const ContactUsForm = () => {
                 ) : null}
               </div>
               <div className="contactus-form_input-group">
-                <label htmlFor="companyWebsite">Company Website</label>
+                <label
+                  className="contactus-form_label"
+                  htmlFor="companyWebsite"
+                >
+                  Company Website
+                </label>
                 <Field
                   placeholder="thewall.com"
                   className="input-textfield"
@@ -99,7 +108,9 @@ const ContactUsForm = () => {
                 ) : null}
               </div>
               <div className="contactus-form_input-group">
-                <label htmlFor="phone">Phone</label>
+                <label className="contactus-form_label" htmlFor="phone">
+                  Phone
+                </label>
                 <Field
                   placeholder="401 867 5309"
                   className="input-textfield"
@@ -110,7 +121,7 @@ const ContactUsForm = () => {
                 ) : null}
               </div>
               <div className="contactus-form_input-group contactus-form_span-1">
-                <label htmlFor="chatType">
+                <label className="contactus-form_label" htmlFor="chatType">
                   What would you like to chat about?
                 </label>
                 <Field as="select" name="chatType" className="input-select">
@@ -127,7 +138,9 @@ const ContactUsForm = () => {
                 ) : null}
               </div>
               <div className="contactus-form_input-group contactus-form_span-1">
-                <label htmlFor="budget">What is your estimated budget?</label>
+                <label className="contactus-form_label" htmlFor="budget">
+                  What is your estimated budget?
+                </label>
                 <Field as="select" name="budget" className="input-select">
                   <option value="Select one..."> Select one...</option>
                   <option value="under50">Under $50,000</option>
@@ -140,15 +153,22 @@ const ContactUsForm = () => {
                 ) : null}
               </div>
               <div className="contactus-form_input-group contactus-form_span-1">
-                <label htmlFor="message">Message</label>
+                <label className="contactus-form_label" htmlFor="message">
+                  Message
+                </label>
                 <Field name="message" component={TextAreaField} />
               </div>
-              <button type="submit">Submit</button>
+              <button
+                className="contactus-form_span-1 contactus-form_button"
+                type="submit"
+              >
+                Submit
+              </button>
             </Form>
           )}
         </Formik>
       </div>
-    </>
+    </section>
   );
 };
 export default ContactUsForm;

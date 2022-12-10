@@ -1,15 +1,15 @@
 .contactus-form_wrapper {
-  margin: 0 auto;
-  background: #fff;
-  border-radius: 5px;
   height: 100%;
   padding: 14px 10vw 100px;
 }
 
 .contactus-form {
   display: grid;
+  height: 100%;
+  grid-auto-columns: 1fr;
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 3rem;
 }
 
 .contactus-form_input-group {
@@ -17,6 +17,15 @@
   flex-direction: column;
   gap: 0.6rem;
   text-align: left;
+  width: 100%;
+}
+.contactus-form_label {
+  font-size: 18px;
+  width: 100%;
+  font-family: Outfit, sans-serif;
+  color: #222;
+  font-style: normal;
+  font-weight: 400;
 }
 
 .contactus-form_heading {
@@ -40,14 +49,13 @@ textarea {
   margin-bottom: 1rem;
   font-size: 14px;
   color: #333;
-  vertical-align: middle;
   background-color: #fff;
   border: 1px solid #ccc;
 }
 
 input.input-textfield {
   height: 3rem;
-  border: 1px #000;
+  border: 1px solid var(--background-color-white);
   background-color: #fafafa;
   font-family: Outfit, sans-serif;
   color: #000;
@@ -74,7 +82,6 @@ select {
   margin-bottom: 10px;
   font-size: 14px;
   color: #333;
-  vertical-align: middle;
   background-color: #fff;
   border: 1px solid #ccc;
   -webkit-appearance: none;
@@ -103,7 +110,7 @@ select.input-select:hover {
 textarea.input-textarea {
   height: 10rem;
   color: #000;
-  border: 1px #000;
+  border: 1px solid var(--background-color-white);
   background-color: #fafafa;
   font-size: 18px;
   font-family: Outfit, sans-serif;
@@ -116,4 +123,40 @@ textarea.input-textarea:focus {
 
 textarea.input-textarea:hover {
   border: 1px solid #000;
+}
+
+.contactus-form_button {
+  padding: 9px 15px;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  width: 100%;
+  height: auto;
+  padding: 14px 34px;
+  border: 1px solid #222;
+  background-color: #222;
+  -webkit-transition: background-color 0.6s cubic-bezier(0, 0.685, 0.292, 0.995);
+  transition: background-color 0.6s cubic-bezier(0, 0.685, 0.292, 0.995);
+  font-family: Outfit, sans-serif;
+  font-size: 1rem;
+}
+
+.contactus-form_button:hover {
+  background-color: #fff;
+  color: #222;
+}
+
+@media only screen and (max-width: 768px) {
+  .contactus-form {
+    grid-template-columns: 1fr;
+  }
+  .contactus-form_wrapper {
+    padding: 5vw;
+  }
+  .contactus-form_span-1 {
+    grid-column: 1;
+  }
+  .contactus-form_heading {
+    font-size: 2.3rem;
+  }
 }
